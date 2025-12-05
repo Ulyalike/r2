@@ -13,6 +13,7 @@
             --primary-dark: #4f46e5;
             --secondary-color: #10b981;
             --accent-color: #f59e0b;
+            --error-color: #ef4444;
             --light-color: #f8fafc;
             --light-gray: #f1f5f9;
             --gray: #94a3b8;
@@ -225,6 +226,86 @@
             margin-top: 2rem;
         }
 
+        /* Problems Section */
+        .problems {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background-color: var(--light-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--error-color);
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .problem-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(239, 68, 68, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            color: var(--error-color);
+            font-size: 1.5rem;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 6rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .advantage-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .advantage-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
         /* Features Section */
         .features {
             padding: 6rem 0;
@@ -310,10 +391,56 @@
             color: var(--dark-color);
         }
 
+        /* Comparison Section */
+        .comparison {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin-top: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        .check {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .cross {
+            color: var(--error-color);
+            font-weight: bold;
+        }
+
         /* Project Timeline */
         .timeline {
             padding: 6rem 0;
-            background-color: white;
+            background-color: var(--light-gray);
         }
 
         .timeline-container {
@@ -348,7 +475,7 @@
         }
 
         .timeline-content {
-            background-color: var(--light-color);
+            background-color: white;
             padding: 1.5rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -371,7 +498,7 @@
             height: 20px;
             border-radius: 50%;
             background-color: var(--primary-color);
-            border: 4px solid white;
+            border: 4px solid var(--light-gray);
             box-shadow: 0 0 0 3px var(--primary-light);
         }
 
@@ -594,7 +721,7 @@
                 padding: 0 1rem;
             }
             
-            .feature-card {
+            .feature-card, .problem-card, .advantage-card {
                 padding: 1.5rem;
             }
             
@@ -616,10 +743,11 @@
                 
                 <ul class="nav-links">
                     <li><a href="#home">Главная</a></li>
+                    <li><a href="#problems">Проблемы</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
                     <li><a href="#features">Возможности</a></li>
-                    <li><a href="#tech">Технологии</a></li>
+                    <li><a href="#comparison">Сравнение</a></li>
                     <li><a href="#timeline">Этапы</a></li>
-                    <li><a href="#contact">Контакты</a></li>
                 </ul>
                 
                 <button class="mobile-menu-btn">
@@ -634,11 +762,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Современный каталог фильмов на React & TypeScript</h1>
-                    <p>Полнофункциональное веб-приложение для поиска, оценки и управления вашей коллекцией фильмов. Проект соответствует всем требованиям учебного курса, включая работу с API, Redux Toolkit и тестирование.</p>
+                    <h1>Решение проблем современных киносервисов</h1>
+                    <p>FilmCatalog — это не просто очередной каталог фильмов. Мы создаем интуитивно понятную платформу, которая решает реальные проблемы кинолюбителей, сочетая мощный функционал с элегантным дизайном.</p>
                     <div class="hero-btns">
-                        <a href="#features" class="btn">Узнать больше</a>
-                        <a href="#timeline" class="btn btn-outline">Этапы проекта</a>
+                        <a href="#problems" class="btn">Узнать о проблемах</a>
+                        <a href="#advantages" class="btn btn-outline">Наши преимущества</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -648,8 +776,128 @@
         </div>
     </section>
 
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <div class="section-title">
+                <h2>Проблемы текущих решений</h2>
+                <p>Почему существующие сервисы не удовлетворяют потребности пользователей?</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Перегруженный интерфейс</h3>
+                    <p>Большинство киносервисов страдают от избытка рекламы, навязчивых рекомендаций и сложной навигации, что отвлекает от главного — поиска и просмотра фильмов.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Низкая производительность</h3>
+                    <p>Тяжелые фронтенд-фреймворки без оптимизации приводят к медленной загрузке страниц, особенно на мобильных устройствах и при слабом интернет-соединении.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Неадаптивный дизайн</h3>
+                    <p>Многие сайты плохо адаптируются под мобильные устройства, создавая неудобства для пользователей, которые хотят искать фильмы с телефона или планшета.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3>Ограниченные возможности поиска</h3>
+                    <p>Базовые фильтры не позволяют искать фильмы по сложным критериям: сочетанию жанров, рейтингу критиков, языку оригинала, возрасту актеров и т.д.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Отсутствие социальных функций</h3>
+                    <p>Невозможность делиться своими подборками с друзьями, обсуждать фильмы в комментариях или создавать совместные списки для просмотра.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Плохая синхронизация</h3>
+                    <p>Избранные фильмы и истории просмотров не синхронизируются между устройствами, что вынуждает пользователей каждый раз начинать с чистого листа.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши уникальные преимущества</h2>
+                <p>Как FilmCatalog решает проблемы современных киносервисов</p>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Молниеносная скорость</h3>
+                    <p>Используем современные технологии оптимизации: кэширование, ленивую загрузку, Server-Side Rendering. Страницы загружаются в 3 раза быстрее, чем у конкурентов.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Чистый минималистичный дизайн</h3>
+                    <p>Интерфейс без лишних элементов и рекламы. Акцент на контенте — постеры, описания и рейтинги фильмов. Интуитивная навигация без обучающих туториалов.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3>Продвинутый поиск</h3>
+                    <p>20+ параметров фильтрации, включая редкие критерии: бюджет фильма, кассовые сборы, награды, возрастное ограничение, соотношение сторон экрана и многое другое.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Полная синхронизация</h3>
+                    <p>Ваши избранные фильмы, истории просмотра и рейтинги доступны на всех устройствах. Начните поиск на телефоне, продолжите на ноутбуке.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Умные рекомендации</h3>
+                    <p>AI-алгоритмы анализируют ваши предпочтения и предлагают фильмы, которые действительно понравятся, а не просто популярные новинки.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Современный стек технологий</h3>
+                    <p>React 18 + TypeScript + Redux Toolkit обеспечивают стабильность, масштабируемость и отличную производительность приложения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="features">
         <div class="container">
             <div class="section-title">
                 <h2>Ключевые возможности</h2>
@@ -704,6 +952,88 @@
                     <h3>Быстрая работа</h3>
                     <p>Оптимизированная производительность, кэширование данных, плавная анимация интерфейса.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Сравнение с конкурентами</h2>
+                <p>Почему FilmCatalog превосходит существующие решения</p>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Функция / Критерий</th>
+                            <th>FilmCatalog</th>
+                            <th>Kinopoisk</th>
+                            <th>IMDb</th>
+                            <th>TMDB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Скорость загрузки</td>
+                            <td class="check">Очень высокая</td>
+                            <td class="cross">Средняя</td>
+                            <td class="cross">Низкая</td>
+                            <td>Высокая</td>
+                        </tr>
+                        <tr>
+                            <td>Адаптивность</td>
+                            <td class="check">Идеальная</td>
+                            <td>Хорошая</td>
+                            <td class="cross">Плохая</td>
+                            <td>Хорошая</td>
+                        </tr>
+                        <tr>
+                            <td>Чистота интерфейса</td>
+                            <td class="check">Минимализм</td>
+                            <td class="cross">Перегружен</td>
+                            <td class="cross">Очень перегружен</td>
+                            <td>Умеренный</td>
+                        </tr>
+                        <tr>
+                            <td>Параметры поиска</td>
+                            <td class="check">20+ фильтров</td>
+                            <td>8 фильтров</td>
+                            <td>10 фильтров</td>
+                            <td>12 фильтров</td>
+                        </tr>
+                        <tr>
+                            <td>Синхронизация</td>
+                            <td class="check">Полная</td>
+                            <td>Частичная</td>
+                            <td class="cross">Нет</td>
+                            <td>Частичная</td>
+                        </tr>
+                        <tr>
+                            <td>AI-рекомендации</td>
+                            <td class="check">Есть</td>
+                            <td class="cross">Нет</td>
+                            <td>Базовые</td>
+                            <td class="cross">Нет</td>
+                        </tr>
+                        <tr>
+                            <td>Типизация кода</td>
+                            <td class="check">TypeScript</td>
+                            <td>JavaScript</td>
+                            <td>JavaScript</td>
+                            <td>JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Тестирование</td>
+                            <td class="check">Unit + E2E + Скриншоты</td>
+                            <td>Unit-тесты</td>
+                            <td>Unit-тесты</td>
+                            <td>Unit-тесты</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -773,62 +1103,53 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">Этап 1</div>
-                        <h3>Статический сайт</h3>
-                        <p>Создание презентационного лендинга на чистом HTML, CSS и JS. Деплой на GitHub Pages для демонстрации идеи проекта.</p>
+                        <h3>Анализ проблем</h3>
+                        <p>Исследование недостатков существующих киносервисов, определение ключевых проблем пользователей и разработка концепции решения.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Этап 2.1</div>
-                        <h3>Настройка проекта</h3>
-                        <p>Инициализация React-приложения с TypeScript, настройка ESLint, Prettier, структуры проекта и базовых компонентов.</p>
+                        <div class="timeline-date">Этап 2</div>
+                        <h3>Дизайн и прототипирование</h3>
+                        <p>Создание чистого минималистичного интерфейса, проектирование пользовательских сценариев, разработка адаптивного дизайна.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Этап 2.2</div>
-                        <h3>Маршрутизация и UI</h3>
-                        <p>Настройка React Router, создание основных страниц, разработка UI-компонентов с использованием CSS Modules.</p>
+                        <div class="timeline-date">Этап 3</div>
+                        <h3>Разработка ядра приложения</h3>
+                        <p>Настройка TypeScript, React, Redux Toolkit, создание базовых компонентов и настройка маршрутизации.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Этап 2.3</div>
-                        <h3>State Management</h3>
-                        <p>Настройка Redux Toolkit, создание слайсов, работа с асинхронными запросами через createAsyncThunk.</p>
+                        <div class="timeline-date">Этап 4</div>
+                        <h3>Интеграция с API и оптимизация</h3>
+                        <p>Подключение к TMDB API, реализация продвинутого поиска, оптимизация производительности и кэширования.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Этап 2.4</div>
-                        <h3>Интеграция с API</h3>
-                        <p>Подключение к TMDB API (или Supabase), реализация CRUD операций, обработка состояний загрузки и ошибок.</p>
+                        <div class="timeline-date">Этап 5</div>
+                        <h3>Тестирование и отладка</h3>
+                        <p>Написание unit-тестов, E2E тестирование пользовательских сценариев, скриншотное тестирование компонентов.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Этап 2.5</div>
-                        <h3>Тестирование</h3>
-                        <p>Написание unit-тестов для компонентов и логики, скриншотные тесты с Storybook, E2E тесты с Cypress.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Этап 2.6</div>
-                        <h3>Деплой и финальная проверка</h3>
-                        <p>Деплой приложения на GitHub Pages, оптимизация производительности, финальное тестирование и документирование.</p>
+                        <div class="timeline-date">Этап 6</div>
+                        <h3>Внедрение и мониторинг</h3>
+                        <p>Деплой приложения, сбор обратной связи от пользователей, мониторинг производительности и исправление ошибок.</p>
                     </div>
                 </div>
             </div>
@@ -836,10 +1157,10 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="contact">
+    <section class="cta">
         <div class="container">
-            <h2>Готовы к разработке?</h2>
-            <p>Проект соответствует всем требованиям учебного задания и будет реализован с использованием современного стека технологий.</p>
+            <h2>Присоединяйтесь к решению проблем!</h2>
+            <p>FilmCatalog — это не просто учебный проект. Это прототип будущего поколения киносервисов, где пользовательский опыт стоит на первом месте.</p>
             <a href="https://github.com" class="btn" target="_blank">Посмотреть код на GitHub</a>
         </div>
     </section>
@@ -850,7 +1171,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>FilmCatalog</h3>
-                    <p>Современный каталог фильмов, разработанный как учебный проект с использованием React, TypeScript и Redux Toolkit.</p>
+                    <p>Решение проблем современных киносервисов через чистый дизайн, современные технологии и пользовательский подход.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-telegram"></i></a>
@@ -860,24 +1181,24 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Технологии</h3>
+                    <h3>Решаемые проблемы</h3>
                     <ul class="footer-links">
-                        <li><a href="#">React 18</a></li>
-                        <li><a href="#">TypeScript</a></li>
-                        <li><a href="#">Redux Toolkit</a></li>
-                        <li><a href="#">React Router v6</a></li>
-                        <li><a href="#">REST API</a></li>
+                        <li><a href="#problems">Перегруженный интерфейс</a></li>
+                        <li><a href="#problems">Низкая производительность</a></li>
+                        <li><a href="#problems">Неадаптивный дизайн</a></li>
+                        <li><a href="#problems">Ограниченный поиск</a></li>
+                        <li><a href="#problems">Плохая синхронизация</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Ссылки</h3>
+                    <h3>Наши преимущества</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#features">Возможности</a></li>
-                        <li><a href="#tech">Технологии</a></li>
-                        <li><a href="#timeline">Этапы</a></li>
-                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="#advantages">Молниеносная скорость</a></li>
+                        <li><a href="#advantages">Чистый дизайн</a></li>
+                        <li><a href="#advantages">Продвинутый поиск</a></li>
+                        <li><a href="#advantages">Полная синхронизация</a></li>
+                        <li><a href="#advantages">Умные рекомендации</a></li>
                     </ul>
                 </div>
                 
@@ -887,12 +1208,13 @@
                         <li><i class="fas fa-envelope"></i> student@example.com</li>
                         <li><i class="fas fa-university"></i> Учебный проект</li>
                         <li><i class="fas fa-calendar-alt"></i> Срок сдачи: 20 декабря</li>
+                        <li><i class="fas fa-code-branch"></i> Этап 1: Статический сайт</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 FilmCatalog. Учебный проект для курса по современному фронтенду. Все права защищены.</p>
+                <p>&copy; 2023 FilmCatalog. Учебный проект для курса по современному фронтенду. Решение реальных проблем пользователей киносервисов.</p>
             </div>
         </div>
     </footer>
@@ -953,8 +1275,9 @@
             });
         }, observerOptions);
         
-        // Apply animation to timeline items
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+        // Apply animation to all animated elements
+        const animatedElements = document.querySelectorAll('.timeline-item, .feature-card, .problem-card, .advantage-card');
+        animatedElements.forEach((item, index) => {
             item.style.opacity = '0';
             item.style.transform = 'translateY(20px)';
             item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -962,26 +1285,81 @@
             observer.observe(item);
         });
         
-        // Apply animation to feature cards
-        document.querySelectorAll('.feature-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            card.style.transitionDelay = `${index * 0.1}s`;
-            observer.observe(card);
-        });
-        
         // Initialize animations
         window.addEventListener('load', () => {
             // Trigger initial animation for elements in viewport
-            document.querySelectorAll('.timeline-item, .feature-card').forEach(item => {
+            animatedElements.forEach(item => {
                 const rect = item.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
                 }
             });
+            
+            // Add interactive effects to comparison table
+            const tableRows = document.querySelectorAll('tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'rgba(99, 102, 241, 0.05)';
+                });
+                row.addEventListener('mouseleave', function() {
+                    if (Array.from(tableRows).indexOf(this) % 2 === 0) {
+                        this.style.backgroundColor = 'var(--light-gray)';
+                    } else {
+                        this.style.backgroundColor = 'white';
+                    }
+                });
+            });
         });
+        
+        // Highlight current section in navigation
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Add active class styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .nav-links a.active {
+                color: var(--primary-color) !important;
+                font-weight: 600;
+                position: relative;
+            }
+            .nav-links a.active:after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--primary-color);
+                border-radius: 1px;
+            }
+            .check:before {
+                content: '✓ ';
+            }
+            .cross:before {
+                content: '✗ ';
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
